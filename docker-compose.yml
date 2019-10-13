@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:                   #call the service web..could be reactApp or whatever you want
+    build:           #specify image
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app
+  tests:         #second service(container)
+    build:       #build based on a defferent file (not Dockerfile)
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:      #map volumes
+      - /app/node_modules       #exclude this one
+      - .:/app                #map current context top /app
+    command: ["npm", "run", "test"]
