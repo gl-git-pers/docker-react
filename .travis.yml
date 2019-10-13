@@ -1,0 +1,10 @@
+sudo: required  #need superuser right sto build
+services:
+  - docker
+
+before_install:
+  -  docker build -t grlyn45/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run grlyn45:docker-react npm run test -- --coverage   #to ensure it exits
+  
