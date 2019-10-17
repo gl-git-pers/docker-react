@@ -19,8 +19,8 @@ deploy:
   on:
     branch: master
 
-access_key_id: $AWS_ACCESS_KEY
-  #secure: "$AWS_ACCESS_KEY"
-secure_access_key:
-  secure: "$AWS_SECRET_KEY"
+  access_key_id:
+    secure: "$AWS_ACCESS_KEY"
+  secure_access_key:
+    secure: "$AWS_SECRET_KEY"
   #secure: "$AWS_SECRET_KEY"   might need quotes
